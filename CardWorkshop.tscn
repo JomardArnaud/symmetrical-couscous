@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://bavu3ibe51njn"]
+
+[ext_resource type="Script" path="res://CardHud.gd" id="1_w5hm5"]
+[ext_resource type="PackedScene" uid="uid://dadhxd2ntmnne" path="res://Card.tscn" id="2_6ne1f"]
+[ext_resource type="PackedScene" uid="uid://dvil3pp220rpc" path="res://Card/Deck.tscn" id="3_wjg26"]
+
+[sub_resource type="Theme" id="Theme_c8ivy"]
+
+[node name="CardWorkshop" type="Node2D"]
+
+[node name="CardHud" type="CanvasLayer" parent="."]
+script = ExtResource("1_w5hm5")
+
+[node name="PanelHand" type="PanelContainer" parent="CardHud"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -638.0
+offset_top = 60.0
+offset_right = 325.0
+offset_bottom = 223.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_c8ivy")
+
+[node name="MarginContainer" type="MarginContainer" parent="CardHud/PanelHand"]
+layout_mode = 2
+theme_override_constants/margin_left = 144
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 144
+theme_override_constants/margin_bottom = 48
+
+[node name="BoxContainer" type="BoxContainer" parent="CardHud/PanelHand/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CardHud/PanelHand/MarginContainer/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 90
+
+[node name="PanelGraveyard" type="PanelContainer" parent="CardHud"]
+offset_left = 1754.0
+offset_top = 50.0
+offset_right = 1872.0
+offset_bottom = 725.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CardHud/PanelGraveyard"]
+layout_mode = 2
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_bottom = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardHud/PanelGraveyard/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Card" parent="CardHud/PanelGraveyard/MarginContainer/VBoxContainer" instance=ExtResource("2_6ne1f")]
+layout_mode = 2
+faceUp = true
+
+[node name="Deck" parent="CardHud" instance=ExtResource("3_wjg26")]
+unique_name_in_owner = true
+offset_left = 1328.0
+offset_top = 66.0
+offset_right = 1328.0
+offset_bottom = 66.0

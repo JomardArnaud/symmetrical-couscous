@@ -1,0 +1,175 @@
+[gd_scene load_steps=21 format=3 uid="uid://dadhxd2ntmnne"]
+
+[ext_resource type="Script" path="res://Card.gd" id="1_ostwk"]
+[ext_resource type="Texture2D" uid="uid://b27vh385cicuv" path="res://Sprite/cardSpriteSheet.png" id="2_kgp37"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsekf"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(0, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxc71"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(16, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd3hq"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(32, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blo6s"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(48, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d7ew"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(64, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54ojh"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(80, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljhjv"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(96, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxxpv"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(96, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_745yb"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(80, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isat3"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(64, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkukg"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(48, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pw0a3"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(32, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai3lf"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(16, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hawxb"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(0, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwmhh"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qmii"]
+atlas = ExtResource("2_kgp37")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mx7vl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsekf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxc71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vd3hq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blo6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d7ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_54ojh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljhjv")
+}],
+"loop": false,
+"name": &"flip_recto",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxxpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_745yb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isat3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkukg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pw0a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai3lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hawxb")
+}],
+"loop": false,
+"name": &"flip_verso",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwmhh")
+}],
+"loop": true,
+"name": &"recto",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qmii")
+}],
+"loop": true,
+"name": &"verso",
+"speed": 5.0
+}]
+
+[sub_resource type="Theme" id="Theme_423rq"]
+
+[node name="Card" type="CenterContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ostwk")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_mx7vl")
+animation = &"flip_verso"
+frame = 6
+frame_progress = 1.0
+
+[node name="Button" type="Button" parent="Sprite"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -25.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_423rq")
+
+[connection signal="pressed" from="Sprite/Button" to="." method="_on_button_pressed"]
