@@ -17,7 +17,7 @@ func _ready() -> void:
 		draw()
 
 func _input(event: InputEvent) -> void:
-	if (event.is_action("draw")):
+	if (event.is_action_pressed("draw")):
 		draw()
 
 func draw() -> void:
@@ -33,4 +33,6 @@ func draw() -> void:
 	tmpCard.sendGraveyard.connect(sendGraveyard)
 
 func sendGraveyard(card: Card) -> void:
+	nbCardHand -= 1
 	card.reparent(graveyardCardContainer)
+	card.set("recto", true)
