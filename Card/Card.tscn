@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dadhxd2ntmnne"]
 
-[ext_resource type="Script" path="res://Card.gd" id="1_ostwk"]
-[ext_resource type="Texture2D" uid="uid://b27vh385cicuv" path="res://Sprite/cardSpriteSheet.png" id="2_kgp37"]
+[ext_resource type="Script" path="res://Card/Card.gd" id="1_ppe4j"]
+[ext_resource type="Texture2D" uid="uid://b27vh385cicuv" path="res://Sprite/cardSpriteSheet.png" id="2_otxmc"]
 
 [sub_resource type="Theme" id="Theme_423rq"]
 
@@ -99,12 +99,12 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ostwk")
+script = ExtResource("1_ppe4j")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 scale = Vector2(5, 5)
-texture = ExtResource("2_kgp37")
+texture = ExtResource("2_otxmc")
 hframes = 7
 vframes = 2
 frame = 7
